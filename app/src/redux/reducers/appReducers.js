@@ -1,11 +1,11 @@
-
 import { CREATE_RECIPE } from '../constants';
 import { DELETE_RECIPE } from '../constants';
+import { SHOW_EDIT_FORM } from '../constants';
+import { CLOSE_EDIT_FORM } from '../constants';
 
 const initialState = {
-    name: '',
-    age: 25,
-    skills: ['React']
+    recipes: [],
+    flagEditForm: false
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -23,9 +23,18 @@ export const appReducer = (state = initialState, action) => {
                 ...state,
                 recipes: recipes
             }
+        case SHOW_EDIT_FORM:
+            return {
+                ...state,
+                flagEditForm: true
+            }
+        case CLOSE_EDIT_FORM:
+            return {
+                ...state,
+                flagEditForm: false
+            }
         case DELETE_RECIPE:
             delete state.recipes[action.payload.key];
-console.log(state.recipes);
             return {
                 ...state,
                 recipes: state.recipes

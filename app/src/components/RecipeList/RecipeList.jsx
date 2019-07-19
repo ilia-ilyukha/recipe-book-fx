@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteRecipeAction } from '../../redux/actions/appActions';
+import { showEditFormAction } from '../../redux/actions/appActions';
 
 class RecipeList extends React.Component {
+
+    showEditForm = () => {
+        this.props.showEditFormProp();
+    }
 
     deleteRecipe = (key) => {
         this.props.deleteRecipeProp(key);
@@ -12,10 +17,15 @@ class RecipeList extends React.Component {
         if (!this.props.recipes) {
             return null;
         }
-        return this.props.recipes.map( (recipe, key) => {
+        return this.props.recipes.map((recipe, key) => {
             return <p>
                 {recipe.name} --- {recipe.description}
-                <button data-edit={key}>EDIT</button>
+                <button
+                    data-edit={key}
+                    onClick={() => this.showEditForm(key)}
+                >
+                    EDIT
+                </button>
                 <button
                     data-delete={key}
                     onClick={() => this.deleteRecipe(key)}
@@ -44,7 +54,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteRecipeProp: (key) => dispatch(deleteRecipeAction(key))
+        deleteRecipeProp: (key) => dispatch(deleteRecipeAction(key)),
+        showEditFormProp: () => dispatch(showEditFormAction())
     }
 }
 

@@ -41,3 +41,6 @@
 .blue{
   background: blue;
 }
+.inactive{
+  display: none
+}

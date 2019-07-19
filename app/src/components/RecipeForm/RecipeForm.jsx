@@ -33,6 +33,7 @@ class RecipeForm extends React.Component {
     render() {
         return (
             <form>
+                <h1>RECIPE LIST</h1>
                 <label className="item">
                     <span>Name</span>
                     <input
@@ -54,7 +55,7 @@ class RecipeForm extends React.Component {
 
                 <input
                     type="button"
-                    value="SAVE"
+                    value="ADD"
                     id="saveDate"
                     data-type="refresh"
                     data-event-id=''

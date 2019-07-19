@@ -1,4 +1,6 @@
 export const CREATE_RECIPE = 'CREATE_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
+export const SHOW_EDIT_FORM = 'SHOW_EDIT_FORM';
+export const CLOSE_EDIT_FORM = 'CLOSE_EDIT_FORM';
 
 
