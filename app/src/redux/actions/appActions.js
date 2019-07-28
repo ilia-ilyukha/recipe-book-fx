@@ -12,9 +12,10 @@ export const createRecipeAction = (name, description) => {
     }
 }
 
-export const showEditFormAction = () => {
+export const showEditFormAction = (key) => {
     return {
-        type: SHOW_EDIT_FORM
+        type: SHOW_EDIT_FORM,
+        payload: key
     }
 }
 export const closeEditFormAction = () => {

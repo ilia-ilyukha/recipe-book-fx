@@ -26,7 +26,8 @@ export const appReducer = (state = initialState, action) => {
         case SHOW_EDIT_FORM:
             return {
                 ...state,
-                flagEditForm: true
+                flagEditForm: true,
+                editRecipeKey: action.payload
             }
         case CLOSE_EDIT_FORM:
             return {

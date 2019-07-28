@@ -5,8 +5,8 @@ import { showEditFormAction } from '../../redux/actions/appActions';
 
 class RecipeList extends React.Component {
 
-    showEditForm = () => {
-        this.props.showEditFormProp();
+    showEditForm = (key) => {
+        this.props.showEditFormProp(key);
     }
 
     deleteRecipe = (key) => {
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteRecipeProp: (key) => dispatch(deleteRecipeAction(key)),
-        showEditFormProp: () => dispatch(showEditFormAction())
+        showEditFormProp: (key) => dispatch(showEditFormAction(key))
     }
 }
 
